@@ -1,0 +1,17 @@
+{
+    "name": "shaon/php-framework",
+    "description": "This is a php MVC framework",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Spike\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "Shahriar Shaon",
+            "email": "shahriarshaon1993@gmail.com"
+        }
+    ],
+    "require": {}
+}
