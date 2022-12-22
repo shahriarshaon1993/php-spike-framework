@@ -6,20 +6,28 @@ use Spike\core\services\RouteServices;
 
 class Application
 {
+    public static string $ROOT_DIR;
+    public static Application $app;
+
     public RouteServices $service;
+    public Response $response;
     public Request $request;
     public Route $route;
 
-    public function __construct()
+    public function __construct($rootPath)
     {
+        self::$ROOT_DIR = $rootPath;
+        self::$app = $this;
+
         $this->request = new Request();
+        $this->response = new Response();
         $this->service = new RouteServices();
-        $this->route = new Route($this->request);
+        $this->route = new Route($this->request, $this->response);
     }
 
     public function run()
     {
         $this->service->boot();
-        $this->route->resolve();
+        echo $this->route->resolve();
     }
 }
