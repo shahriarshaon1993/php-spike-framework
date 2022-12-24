@@ -1,0 +1,42 @@
+{
+  "name": "php-framework",
+  "version": "1.0.0",
+  "description": "Spike PHP MVC Framework",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve --mode development",
+    "dev": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shahriarshaon1993/php-spike-framework.git"
+  },
+  "keywords": [
+    "PHP",
+    "MVC",
+    "Bootstrap",
+    "JavaScript"
+  ],
+  "author": "Shahriar Shaon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shahriarshaon1993/php-spike-framework/issues"
+  },
+  "homepage": "https://github.com/shahriarshaon1993/php-spike-framework#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "css-loader": "^6.7.3",
+    "postcss-loader": "^7.0.2",
+    "sass": "^1.57.1",
+    "sass-loader": "^13.2.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.6",
+    "axios": "^1.2.1",
+    "bootstrap": "^5.2.3"
+  }
+}
