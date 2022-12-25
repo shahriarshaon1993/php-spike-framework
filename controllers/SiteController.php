@@ -3,6 +3,7 @@
 namespace Spike\controllers;
 
 use Spike\core\Controller;
+use Spike\core\Request;
 
 class SiteController extends Controller
 {
@@ -33,8 +34,10 @@ class SiteController extends Controller
         return $this->render('contact', $params);
     }
 
-    public function handleContact()
+    public function handleContact(Request $request)
     {
+        // $data = $request->getBody();
+
         return 'Handling Submitted data';
     }
 }
