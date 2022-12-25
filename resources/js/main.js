@@ -1,12 +1,7 @@
-import generateJock from "./generateJock";
+import axios from 'axios';
 
 // Import our custom CSS
-import '../scss/styles.scss'
+import '../scss/styles.scss';
 
 // Import all of Bootstrap's JS
-import * as bootstrap from 'bootstrap'
-
-const jokeBtn = document.getElementById('jokeBtn');
-jokeBtn.addEventListener('click', generateJock);
-
-generateJock();
+import * as bootstrap from 'bootstrap';

@@ -1,14 +1,9 @@
 <?php
 
+use Spike\controllers\SiteController;
 use Spike\core\Route;
 
-Route::get('/', 'home');
-
-Route::get('/about', function () {
-    return 'About page';
-});
-
-Route::get('/contact', 'contact');
-Route::post('/contact', function() {
-    return 'Handleing Submited Data';
-});
+Route::get('/', [SiteController::class, 'home']);
+Route::get('/about', [SiteController::class, 'about']);
+Route::get('/contact', [SiteController::class, 'contact']);
+Route::post('/contact', [SiteController::class, 'handleContact']);
