@@ -7,12 +7,9 @@ use Spike\core\Request;
 
 class AuthController extends Controller
 {
-    public function login(Request $request)
+    public function login()
     {
-        if ($request->isPost()) {
-            return "Handle submited data";
-        }
-
+        $this->setLayout('auth');
         return $this->render('login');
     }
 
@@ -22,6 +19,7 @@ class AuthController extends Controller
             return "Handle submited data";
         }
 
+        $this->setLayout('auth');
         return $this->render('register');
     }
 }

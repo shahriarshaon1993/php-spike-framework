@@ -9,6 +9,7 @@ class Application
     public static string $ROOT_DIR;
     public static Application $app;
 
+    public Controller $controller;
     public RouteServices $service;
     public Response $response;
     public Request $request;
@@ -29,5 +30,23 @@ class Application
     {
         $this->service->boot();
         echo $this->route->resolve();
+    }
+
+    /**
+     * Get the value of controller
+     */ 
+    public function getController()
+    {
+        return $this->controller;
+    }
+
+    /**
+     * Set the value of controller
+     *
+     * @return  self
+     */ 
+    public function setController(Controller $controller)
+    {
+        $this->controller = $controller;
     }
 }
