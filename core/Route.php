@@ -52,7 +52,7 @@ class Route
     public function resolve()
     {
         $path = $this->request->getPath();
-        $method = $this->request->getMethod();
+        $method = $this->request->method();
         $callback = self::$routes[$method][$path] ?? false;
         if ($callback === false) {
             $this->response->setStatusCode(404);
