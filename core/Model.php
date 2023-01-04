@@ -4,11 +4,11 @@ namespace Spike\core;
 
 abstract class Model
 {
-    public const RULE_REQUIRED = 'required';
-    public const RULE_EMAIL = 'email';
-    public const RULE_MIN = 'min';
-    public const RULE_MAX = 'max';
-    public const RULE_MATCH = 'match';
+    protected const RULE_REQUIRED = 'required';
+    protected const RULE_EMAIL = 'email';
+    protected const RULE_MIN = 'min';
+    protected const RULE_MAX = 'max';
+    protected const RULE_MATCH = 'match';
 
     public function loadData($data)
     {
@@ -25,11 +25,6 @@ abstract class Model
 
     public function validate()
     {
-        echo '<pre>';
-        print_r($this->rules());
-        echo '</pre>';
-        exit;
-
         foreach ($this->rules() as $attribute => $rules) {
             $value = $this->{$attribute};
             

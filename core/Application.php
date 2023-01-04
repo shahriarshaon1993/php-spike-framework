@@ -6,6 +6,7 @@ use Spike\core\services\RouteServices;
 
 class Application
 {
+    public string $layout = 'main';
     public static string $ROOT_DIR;
     public static Application $app;
 
@@ -30,23 +31,5 @@ class Application
     {
         $this->service->boot();
         echo $this->route->resolve();
-    }
-
-    /**
-     * Get the value of controller
-     */ 
-    public function getController()
-    {
-        return $this->controller;
-    }
-
-    /**
-     * Set the value of controller
-     *
-     * @return  self
-     */ 
-    public function setController(Controller $controller)
-    {
-        $this->controller = $controller;
     }
 }

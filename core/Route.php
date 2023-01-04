@@ -54,6 +54,7 @@ class Route
         $path = $this->request->getPath();
         $method = $this->request->method();
         $callback = self::$routes[$method][$path] ?? false;
+
         if ($callback === false) {
             $this->response->setStatusCode(404);
             return $this->renderView('_404');
@@ -100,7 +101,12 @@ class Route
 
     protected function layoutContent()
     {
-        $layout = Application::$app->controller->layout;
+        if (!isset(Application::$app->controller->layout)) {
+            $layout = 'main';
+        } else {
+            $layout = Application::$app->controller->layout;
+        }
+
         ob_start();
         include_once Application::$ROOT_DIR."/resources/views/layouts/$layout.php";
         return ob_get_clean();
