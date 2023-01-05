@@ -6,11 +6,11 @@ use Spike\core\Model;
 
 class Register extends Model
 {
-    public string $firstname;
-    public string $lastname;
-    public string $email;
-    public string $password;
-    public string $confirmPassword;
+    public string $firstname = '';
+    public string $lastname = '';
+    public string $email = '';
+    public string $password = '';
+    public string $confirmPassword = '';
 
     public function save()
     {

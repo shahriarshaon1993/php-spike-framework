@@ -16,8 +16,9 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
+        $register = new Register();
+
         if ($request->isPost()) {
-            $register = new Register();
             $register->loadData($request->getBody());
             
             if ($register->validate() && $register->save()) {
@@ -31,6 +32,8 @@ class AuthController extends Controller
         }
 
         $this->setLayout('auth');
-        return $this->render('register');
+        return $this->render('register', [
+            'model' => $register
+        ]);
     }
 }
