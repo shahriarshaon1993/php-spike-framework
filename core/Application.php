@@ -15,12 +15,14 @@ class Application
     public Response $response;
     public Request $request;
     public Route $route;
+    public Database $db;
 
-    public function __construct($rootPath)
+    public function __construct($rootPath, array $config)
     {
         self::$ROOT_DIR = $rootPath;
         self::$app = $this;
 
+        $this->db = new Database($config['db']);
         $this->request = new Request();
         $this->response = new Response();
         $this->service = new RouteServices();

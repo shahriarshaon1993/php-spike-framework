@@ -3,8 +3,8 @@
 use Dotenv\Dotenv;
 use Spike\core\Application;
 
-require_once __DIR__ . '/../vendor/autoload.php';
-$dotenv = Dotenv::createImmutable(dirname(__DIR__));
+require_once __DIR__ . '/vendor/autoload.php';
+$dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 $config = [
@@ -15,6 +15,6 @@ $config = [
     ]
 ];
 
-$app = new Application(dirname(__DIR__), $config);
+$app = new Application(__DIR__, $config);
 
-$app->run();
+$app->db->applyMigrations();
