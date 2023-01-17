@@ -16,6 +16,7 @@ class Application
     public Request $request;
     public Route $route;
     public Database $db;
+    public Session $session;
 
     public function __construct($rootPath, array $config)
     {
@@ -27,6 +28,7 @@ class Application
         $this->response = new Response();
         $this->service = new RouteServices();
         $this->route = new Route($this->request, $this->response);
+        $this->session = new Session();
     }
 
     public function run()

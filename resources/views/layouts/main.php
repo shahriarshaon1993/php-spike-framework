@@ -1,3 +1,7 @@
+<?php
+
+use Spike\core\Application;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,6 +44,11 @@
     </nav>
 
     <div class="container py-4 px-3 mx-auto">
+        <?php if (Application::$app->session->getFlash('success')) : ?>
+            <div class="alert alert-success">
+                <?php echo Application::$app->session->getFlash('success') ?>
+            </div>
+        <?php endif; ?>
         {{content}}
     </div>
 
