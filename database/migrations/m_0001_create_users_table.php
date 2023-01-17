@@ -12,7 +12,7 @@ class m_0001_create_users_table
                     id INT AUTO_INCREMENT PRIMARY KEY, 
                     email VARCHAR(255) NOT NULL, 
                     firstname VARCHAR(255) NOT NULL, 
-                    lastneme VARCHAR(255) NOT NULL, 
+                    lastname VARCHAR(255) NOT NULL, 
                     status TINYINT NOT NULL, 
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                 ) ENGINE=INNODB;";

@@ -2,9 +2,10 @@
 
 namespace Spike\controllers;
 
+use Spike\core\Application;
 use Spike\core\Controller;
 use Spike\core\Request;
-use Spike\models\Register;
+use Spike\models\User;
 
 class AuthController extends Controller
 {
@@ -16,24 +17,23 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-        $register = new Register();
+        $user = new User();
 
         if ($request->isPost()) {
-            $register->loadData($request->getBody());
-            
-            if ($register->validate() && $register->save()) {
-                return 'Success';
+            $user->loadData($request->getBody());
+            if ($user->validate() && $user->save()) {
+                return Application::$app->response->redirect('/');
             }
 
             $this->setLayout('auth');
             return $this->render('register', [
-                'model' => $register
+                'model' => $user
             ]);
         }
 
         $this->setLayout('auth');
         return $this->render('register', [
-            'model' => $register
+            'model' => $user
         ]);
     }
 }
