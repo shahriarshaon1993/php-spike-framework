@@ -1,3 +1,7 @@
+<?php
+    /** @var $model \app\models\User */
+?>
+
 <h1>Register Page</h1>
 <?php $form = Spike\core\form\Form::begin('', 'post') ?>
     <?= $form->field($model, 'firstname') ?>
