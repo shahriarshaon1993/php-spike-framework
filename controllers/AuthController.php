@@ -4,6 +4,7 @@ namespace Spike\controllers;
 
 use Spike\core\Application;
 use Spike\core\Controller;
+use Spike\core\middleware\AuthMiddleware;
 use Spike\core\Request;
 use Spike\core\Response;
 use Spike\models\LoginForm;
@@ -11,6 +12,11 @@ use Spike\models\User;
 
 class AuthController extends Controller
 {
+    public function __construct()
+    {
+        $this->registerMiddleware(new AuthMiddleware(['profile']));
+    }
+
     public function login(Request $request, Response $response)
     {
         $loginForm = new LoginForm();
@@ -55,5 +61,10 @@ class AuthController extends Controller
     {
         Application::$app->logout();
         $response->redirect('/');
+    }
+
+    public function profile()
+    {
+        return $this->render('profile');
     }
 }

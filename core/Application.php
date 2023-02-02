@@ -12,7 +12,6 @@ class Application
     public static string $ROOT_DIR;
     public static Application $app;
 
-    public Controller $controller;
     public RouteServices $service;
     public Response $response;
     public Request $request;
@@ -20,6 +19,8 @@ class Application
     public Database $db;
     public Session $session;
     public ?DbModel $user;
+
+    public ?Controller $controller = null;
 
     public function __construct($rootPath, array $config)
     {
@@ -49,7 +50,14 @@ class Application
     public function run()
     {
         $this->service->boot();
-        echo $this->route->resolve();
+        try {
+            echo $this->route->resolve();
+        }catch(\Exception $e) {
+            $this->response->setStatusCode($e->getCode());
+            echo $this->route->renderView('_error', [
+                'exception' => $e
+            ]);
+        }
     }
 
     public function login(DbModel $user)
