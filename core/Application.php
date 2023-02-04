@@ -19,6 +19,7 @@ class Application
     public Database $db;
     public Session $session;
     public ?DbModel $user;
+    public View $view;
 
     public ?Controller $controller = null;
 
@@ -34,6 +35,7 @@ class Application
         $this->service = new RouteServices();
         $this->route = new Route($this->request, $this->response);
         $this->session = new Session();
+        $this->view = new View();
 
         $primaryValue = $this->session->get('user');
 
@@ -54,7 +56,7 @@ class Application
             echo $this->route->resolve();
         }catch(\Exception $e) {
             $this->response->setStatusCode($e->getCode());
-            echo $this->route->renderView('_error', [
+            echo $this->view->renderView('_error', [
                 'exception' => $e
             ]);
         }

@@ -1,3 +1,8 @@
+<?php
+    /** @var $this \Spike\core\View */
+    $this->title = 'Contact';
+?>
+
 <h1>Contact</h1>
 <p><?= $data ?></p>
 <form action="" method="post">

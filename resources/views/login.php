@@ -1,6 +1,9 @@
 <?php
-/** @var $model \app\models\User */
+    /** @var $model \Spike\models\User */
+    /** @var $this \Spike\core\View */
+    $this->title = 'login';
 ?>
+
 <h1>Login Page</h1>
 <?php $form = \Spike\core\form\Form::begin('', 'post') ?>
     <?= $form->field($model, 'email') ?>

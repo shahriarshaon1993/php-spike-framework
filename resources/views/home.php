@@ -1,3 +1,8 @@
+<?php
+    /** @var $this \Spike\core\View */
+    $this->title = 'Home';
+?>
+
 <div class="card">
     <h5 class="card-header">Joks <?= $name ?></h5>
     <div class="card-body">

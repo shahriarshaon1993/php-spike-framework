@@ -1,5 +1,8 @@
 <?php
-    /** @var $model \app\models\User */
+    /** @var $model \Spike\models\User */
+    /** @var $this \Spike\core\View */
+
+    $this->title = 'Register'
 ?>
 
 <h1>Register Page</h1>

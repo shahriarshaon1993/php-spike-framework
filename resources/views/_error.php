@@ -1,5 +1,7 @@
 <?php
     /** @var $exception \Exception */
+    /** @var $this \Spike\core\View */
+    $this->title = 'Error'
 ?>
 
 <h3>
