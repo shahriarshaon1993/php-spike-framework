@@ -9,7 +9,7 @@
 <?php $form = Spike\core\form\Form::begin('', 'post') ?>
     <?= $form->field($model, 'firstname') ?>
     <?= $form->field($model, 'lastname') ?>
-    <?= $form->field($model, 'email')->emailField() ?>
+    <?= $form->field($model, 'email') ?>
     <?= $form->field($model, 'password')->passwordField() ?>
     <?= $form->field($model, 'confirmPassword')->passwordField() ?>
 

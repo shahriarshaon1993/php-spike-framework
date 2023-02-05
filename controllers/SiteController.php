@@ -2,8 +2,11 @@
 
 namespace Spike\controllers;
 
+use Spike\core\Application;
 use Spike\core\Controller;
 use Spike\core\Request;
+use Spike\core\Response;
+use Spike\models\ContactForm;
 
 class SiteController extends Controller
 {
@@ -25,19 +28,19 @@ class SiteController extends Controller
         return $this->render('about', $params);
     }
 
-    public function contact()
+    public function contact(Request $request, Response $response)
     {
-        $params = [
-            'data' => 'Contact Data'
-        ];
+        $contact = new ContactForm();
+        if ($request->isPost()) {
+            $contact->loadData($request->getBody());
+            if ($contact->validate() && $contact->send()) {
+                Application::$app->session->setFlash('success', 'Thanks for connecting us.');
+                return $response->redirect('/contact');
+            }
+        }
 
-        return $this->render('contact', $params);
-    }
-
-    public function handleContact(Request $request)
-    {
-        // $data = $request->getBody();
-
-        return 'Handling Submitted data';
+        return $this->render('contact', [
+            'model' => $contact
+        ]);
     }
 }
