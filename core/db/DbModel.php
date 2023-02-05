@@ -1,6 +1,9 @@
 <?php
 
-namespace Spike\core;
+namespace Spike\core\db;
+
+use Spike\core\Model;
+use Spike\core\Application;
 
 abstract class DbModel extends Model
 {

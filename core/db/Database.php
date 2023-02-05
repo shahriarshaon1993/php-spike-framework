@@ -1,6 +1,6 @@
 <?php
 
-namespace Spike\core;
+namespace Spike\core\db;
 
 use Spike\core\Application;
 

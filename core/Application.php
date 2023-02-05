@@ -2,6 +2,7 @@
 
 namespace Spike\core;
 
+use Spike\core\db\Database;
 use Spike\core\services\RouteServices;
 
 class Application
@@ -18,7 +19,7 @@ class Application
     public Route $route;
     public Database $db;
     public Session $session;
-    public ?DbModel $user;
+    public ?UserModel $user;
     public View $view;
 
     public ?Controller $controller = null;
@@ -62,7 +63,7 @@ class Application
         }
     }
 
-    public function login(DbModel $user)
+    public function login(UserModel $user)
     {
         $this->user = $user;
         $primaryKey = $user->primaryKey();
