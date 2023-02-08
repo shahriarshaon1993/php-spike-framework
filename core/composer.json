@@ -1,9 +1,9 @@
 {
-    "name": "boompearl/shaon-php-mvc-framwork",
-    "description": "Testing",
+    "name": "spike/spike-mvc",
+    "description": "",
     "autoload": {
         "psr-4": {
-            "Boompearl\\ShaonPhpMvcFramwork\\": "src/"
+            "Spike\\": "./"
         }
     },
     "authors": [
